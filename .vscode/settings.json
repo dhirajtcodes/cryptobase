@@ -1,0 +1,12 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "apexcharts",
+    "browserslist",
+    "Coininfo",
+    "cryptohunter",
+    "echarts",
+    "xaxis"
+  ]
+}
