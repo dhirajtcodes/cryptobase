@@ -12,10 +12,12 @@ import {
 import { Crypto } from "../contexts/CryptoContext";
 import Coininfo from "../components/Coininfo";
 import { numberWithCommas } from "../components/Banner/Carousel";
+import Header from "../components/Header";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
+    minHeight: '100vh',
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       alignItems: "center",
@@ -97,58 +99,61 @@ const CoinBase = () => {
   return (
     <>
       {singleCoin !== undefined ? (
-        <Container maxWidth="xl">
-          <div className={classes.container}>
-            <div className={classes.sidebar}>
-              <img
-                src={singleCoin?.image}
-                alt={singleCoin.name}
-                height="200"
-                style={{ marginBottom: 20 }}
-              />
+        <div>
+          <Header />
+          <Container maxWidth="xl">
+            <div className={classes.container}>
+              <div className={classes.sidebar}>
+                <img
+                  src={singleCoin?.image}
+                  alt={singleCoin.name}
+                  height="200"
+                  style={{ marginBottom: 20 }}
+                />
 
-              <Typography variant="h3" className={classes.heading}>
-                {singleCoin?.name}
-              </Typography>
-              <Typography variant="subtitle1" className={classes.description}>
-                {parse(singleCoin.description.split(". ")[0])}
-              </Typography>
-              <div className={classes.marketData}>
-                <span style={{ display: "flex" }}>
-                  <Typography variant="h5" className={classes.heading}>
-                    Rank:
-                  </Typography>
-                  &nbsp; &nbsp;
-                  <Typography variant="h5" style={{ fontFamily: "Montserrat" }}>
-                    {singleCoin?.marketCapRank}
-                  </Typography>
-                </span>
-                <span style={{ display: "flex" }}>
-                  <Typography variant="h5" className={classes.heading}>
-                    Current Price:
-                  </Typography>
-                  &nbsp; &nbsp;
-                  <Typography variant="h5" style={{ fontFamily: "Montserrat" }}>
-                    {symbol} {numberWithCommas(singleCoin?.marketCurrentPrice)}
-                  </Typography>
-                </span>
-                <span style={{ display: "flex" }}>
-                  <Typography variant="h5" className={classes.heading}>
-                    Market Cap:
-                  </Typography>
-                  &nbsp; &nbsp;
-                  <Typography variant="h5" style={{ fontFamily: "Montserrat" }}>
-                    {symbol}{" "}
-                    {numberWithCommas(
-                      singleCoin.market_cap.toString().slice(0, -6)
-                    )}
-                  </Typography>
-                </span>
+                <Typography variant="h3" className={classes.heading}>
+                  {singleCoin?.name}
+                </Typography>
+                <Typography variant="subtitle1" className={classes.description}>
+                  {parse(singleCoin.description.split(". ")[0])}
+                </Typography>
+                <div className={classes.marketData}>
+                  <span style={{ display: "flex" }}>
+                    <Typography variant="h5" className={classes.heading}>
+                      Rank:
+                    </Typography>
+                    &nbsp; &nbsp;
+                    <Typography variant="h5" style={{ fontFamily: "Montserrat" }}>
+                      {singleCoin?.marketCapRank}
+                    </Typography>
+                  </span>
+                  <span style={{ display: "flex" }}>
+                    <Typography variant="h5" className={classes.heading}>
+                      Current Price:
+                    </Typography>
+                    &nbsp; &nbsp;
+                    <Typography variant="h5" style={{ fontFamily: "Montserrat" }}>
+                      {symbol} {numberWithCommas(singleCoin?.marketCurrentPrice)}
+                    </Typography>
+                  </span>
+                  <span style={{ display: "flex" }}>
+                    <Typography variant="h5" className={classes.heading}>
+                      Market Cap:
+                    </Typography>
+                    &nbsp; &nbsp;
+                    <Typography variant="h5" style={{ fontFamily: "Montserrat" }}>
+                      {symbol}{" "}
+                      {numberWithCommas(
+                        singleCoin.market_cap.toString().slice(0, -6)
+                      )}
+                    </Typography>
+                  </span>
+                </div>
               </div>
+              <Coininfo coin={coin} />
             </div>
-            <Coininfo coin={coin} />
-          </div>
-        </Container>
+          </Container>
+        </div>
       ) : (
         <LinearProgress style={{ backgroundColor: "gold" }} />
       )}

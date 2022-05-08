@@ -11,6 +11,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    
     width: "75%",
     display: "flex",
     flexDirection: "column",
@@ -81,7 +82,7 @@ const Coininfo = ({ coin }) => {
         },
       ]);
     });
-  }, [days]);
+  }, [coin, currency, days]);
 
   const darkTheme = createTheme({
     palette: {
@@ -108,7 +109,7 @@ const Coininfo = ({ coin }) => {
                 options={options}
                 series={series}
                 type="area"
-                height={550}
+                height={400}
                 width={1000}
               />
               <div className={classes.buttons}>
