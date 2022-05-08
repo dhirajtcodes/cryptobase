@@ -1,9 +1,10 @@
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import CoinBase from './pages/CoinBase'
 import HomePage from './pages/HomePage'
 import { makeStyles } from '@material-ui/core'
-
+import { useNavigate } from "react-router-dom"
 
 const useStyles = makeStyles(() => ({
   App: {
@@ -14,7 +15,13 @@ const useStyles = makeStyles(() => ({
 }))
 
 const App = () => {
+  const navigate = useNavigate()
   const classes = useStyles()
+
+  useEffect(() => {
+    navigate("/", { replace: true })
+  }, [])
+
   return (
     <>
       <Router>
