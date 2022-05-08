@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cryptobase/static/css/main.fb5f157c.css",
+    "main.js": "/cryptobase/static/js/main.791c1304.js",
+    "index.html": "/cryptobase/index.html",
+    "main.fb5f157c.css.map": "/cryptobase/static/css/main.fb5f157c.css.map",
+    "main.791c1304.js.map": "/cryptobase/static/js/main.791c1304.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb5f157c.css",
+    "static/js/main.791c1304.js"
+  ]
+}
